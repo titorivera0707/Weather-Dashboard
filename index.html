@@ -12,28 +12,48 @@
     </head>
     <body>
 
-        <div class="jumbotron jumbotron-fluid">
+        <div id="jumbotron" class="jumbotron jumbotron-fluid">
             <div class="container">
-              <h1 id="jumbotron" class="display-5">Weather Dashboard</h1>
+              <h1 id="jumbotronLetters" class="display-5">Weather Dashboard</h1>
             </div>
         </div>
 
-        <div class="col-3">
-            <div class="card" id="">
-                <div class="card-body">
-                    <form>
-                        <div class="form-group">
-                          <label for="citySearch">Search for a City:</label>
-                          <input type="search" class="form-control" id="searchInput" aria-describedby="cityHelp">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="left col-md-4">
+                    <div class="card" id="card1">
+                        <div class="card-body">
+                            <form>
+                                <div class="form-group">
+                                <label for="citySearch">Search for a City:</label>
+                                <input type="search" class="form-control" id="searchInput" aria-describedby="cityHelp">
+                                </div>
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                            </form>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                      </form>
+                    </div>
                 </div>
-              </div>
-        </div>
-        
-        <div class="col-9">
-        
+                
+                <div class="col-md-8">
+                
+                    <div class="card" id="card2">
+                        <div class="card-body">
+                        <h3 class="cityName">City Name:</h3>
+                        <h6 class="temperature">Temperature:</h6>
+                        <h6 class="humidity">Humidity:</h6>
+                        <h6 class="windspeed">Windspeed:</h6>
+                        <h6 class="uvindex">UV-index:</h6>
+                        </div>
+                    </div>
+
+                    <h3 class="forecast">5-day Forecast:</h3>
+
+                </div>
+
+            </div>
+
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -1,0 +1,25 @@
+.container{
+    width: 100%;
+}
+.row {
+    width: 100%;
+}
+
+.left {
+    float:center;
+    width: 100%
+    
+}
+#jumbotron {
+    height: 0px;
+    background-image: linear-gradient(to right, rgb(85, 190, 252), white)
+}
+
+#jumbotronLetters {
+    text-align: center;
+    margin-top: -40px;
+}
+
+#card1 {
+    width:100%;
+}
