@@ -22,3 +22,26 @@
 #card1 {
     width:100%;
 }
+
+.blue {
+    background-color:  rgb(85, 190, 252);
+    margin-right: 1px;
+    max-width: 100px;
+    margin-bottom: 1px;
+}
+
+.green {
+    background-color: green;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.orange {
+    background-color: orange;
+}   
+
+.red {
+    background-color: red;
+}

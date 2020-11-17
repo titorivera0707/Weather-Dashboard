@@ -22,6 +22,7 @@ $.ajax({
   console.log(response)
   var fahrenheit = response.main.temp * 9/5 - 459.67
     $(".cityName").text(response.name + " (" + month + "/" + date + "/" + year + ")");
+    $(".conditions").text("Conditions: " + response.weather[0].main)
     $(".temperature").text("Temperature: " + Math.round(fahrenheit) + " °F");
     $(".humidity").text("Humidity: " + response.main.humidity + "%");
     $(".windspeed").text("Wind Speed: " + response.wind.speed + " MPH");
@@ -34,7 +35,22 @@ $.ajax({
     method: "GET"
 }).then(function(uvRes) {
   console.log(uvRes)
+
   $(".uvindex").text("UV Index: " + uvRes.value)
+
+  if (uvRes.value > 0 && uvRes.value <= 2.5){
+    $(".uvindex").addClass("green")
+  }
+  if (uvRes.value > 2.5 && uvRes.value <= 5.5){
+    $(".uvindex").addClass("yellow")
+  }
+  if (uvRes.value > 5.5 && uvRes.value <= 7.5){
+    $(".uvindex").addClass("orange")
+  }
+  if (uvRes.value > 7.5) {
+    $(".uvindex").addClass("red")
+  }
+  
 });
 
   var queryURL5 = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&units=imperial&appid=30b6b2806250637e3cf7ca1b25aa6a9f"
@@ -46,13 +62,15 @@ $.ajax({
       console.log(res5);
 
     for(i = 1; i < 6; i++) {
-      var day1 = $("<div class='col'>")
+      var day1 = $("<div class='col blue'>")
       var img = $("<img>")
-      var dateForecast = $("<h3>").text()
-      var temp5 = $("<p>").text(res5.daily[i].temp.day)
-      var humi5 = $("<p>")
+      var date5 = date++ + 1
+      var dateForecast = $("<h5>").text(" (" + month + "/" + date5 + "/" + year + ")")
+      var temp5 = $("<p>").text("Temp: " + Math.round(res5.daily[i].temp.day) + "°F")
+      var conds5 = $("<p>").text("Conditions: " + res5.daily[i].weather[0].main)
+      var humi5 = $("<p>").text("Humidity: " + res5.daily[i].humidity + "%")
       $(".forecast5").append(day1)
-      $(day1).append(img, dateForecast, temp5, humi5)
+      $(day1).append(img, dateForecast, temp5, conds5, humi5)
 
 
     }
